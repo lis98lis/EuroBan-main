@@ -1,0 +1,31 @@
+.popup{
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &.active {
+    z-index: 100;
+    opacity: 1;
+    visibility: unset;
+  }
+
+  @media (max-width: 767px) {
+    &:not(.mini-popup){
+
+    }
+  }
+}
+
+.mini-popup{
+
+}

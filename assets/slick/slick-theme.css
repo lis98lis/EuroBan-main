@@ -1,0 +1,18 @@
+/* Error: Undefined mixin.
+ *     ,
+ * 105 | /     @include before-md () {
+ * 106 | |         left: 40%;
+ * 107 | \     }
+ *     '
+ *   slick-theme.scss 105:5  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a     \2577 \a 105 \2502  \250c      @include before-md () {\a 106 \2502  \2502          left: 40%;\a 107 \2502  \2514      }\a     \2575 \a   slick-theme.scss 105:5  root stylesheet";
+}

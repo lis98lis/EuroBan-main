@@ -1,0 +1,96 @@
+@use "partials/variables";
+
+html, body {
+  height: 100%;
+  background: #ffffff;
+  scroll-behavior: smooth;
+  font: 24px/1.1 'Inter', sans-serif;
+
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+
+}
+
+.wrapper {
+  min-height: 100vh;
+  scrollbar-width: none !important;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.block__content {
+  margin: 0 auto;
+  max-width: $block_width;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  //flex-flow: column;
+  @include inner-container();
+  @include before-md() {
+    padding: 0 10px;
+  }
+
+
+}
+
+.block__anchor {
+  position: absolute;
+  top: 0;
+}
+
+.block_first-on-page {
+
+}
+
+.block__content {
+
+}
+
+.title{ // Может standard-title, standard-btn и т.д.?
+
+}
+
+
+
+
+
+
+//Special classes
+
+
+.responsive-block {
+  position: relative;
+  width: 130px;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+.responsive-block__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+

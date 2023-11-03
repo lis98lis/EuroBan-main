@@ -1,0 +1,85 @@
+$widthSm: 540px;
+$widthMd: 720px;
+$widthLg: 960px;
+$widthXl: 1140px;
+
+$breakSm: 576px;
+$breakMd: 768px;
+$breakLg: 992px;
+$breakXl: 1200px;
+
+
+@mixin sm() {
+    @media screen and (min-width: $breakSm){
+        @content;
+    }
+}
+
+@mixin md() {
+    @media screen and (min-width: $breakMd){
+        @content;
+    }
+}
+
+@mixin lg() {
+    @media screen and (min-width: $breakLg){
+        @content;
+    }
+}
+
+@mixin xl() {
+    @media screen and (min-width: $breakXl){
+        @content;
+    }
+}
+
+@mixin before-sm() {
+    @media screen and (max-width: $breakSm - 1px){
+        @content;
+    }
+}
+
+@mixin before-md() {
+    @media screen and (max-width: $breakMd - 1px){
+        @content;
+    }
+}
+
+@mixin before-lg() {
+    @media screen and (max-width: $breakLg - 1px){
+        @content;
+    }
+}
+
+@mixin before-xl() {
+    @media screen and (max-width: $breakXl - 1px){
+        @content;
+    }
+}
+
+@mixin block(){
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+@mixin inner-container() {
+    width: 100%;
+    margin: 0 auto;
+
+    @include sm() {
+        max-width: $widthSm;
+    }
+
+    @include md() {
+        max-width: $widthMd;
+    }
+
+    @include lg() {
+        max-width: $widthLg;
+    }
+
+    @include xl() {
+        max-width: $widthXl;
+    }
+}
