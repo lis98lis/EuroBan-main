@@ -9,7 +9,7 @@ Template Name: home
     <main>
         <!-- Intro -->
         <section class="intro">
-            <video class="intro__video" src="<?php echo get_template_directory_uri(); ?>/videos/intro-video.mp4" muted autoplay loop playsinline></video>
+            <video class="intro__video" src="<?php the_field('main_block-video');?>" muted autoplay loop playsinline></video>
             <div class="intro__container">
                 <div class="intro__left-block">
                     <h1 class="intro__title"><?php the_field ('title_main_block_video');?>
@@ -24,11 +24,7 @@ Template Name: home
                     <div class="intro__row">
 
                         <?php
-
-                        // проверяем есть ли в повторителе данные
                         if (have_rows('Creating_small_info')):
-
-                            // перебираем данные
                             while (have_rows('Creating_small_info')) : the_row(); ?>
 
                                 <div class="intro__about-us about-us-intro">
@@ -39,11 +35,8 @@ Template Name: home
                                     <p class="about-us-intro__subtitle"><?php the_sub_field('Creating_small_info_text'); ?></p>
                                 </div>
                             <?php endwhile;
-
                         else :
-
                         endif;
-
                         ?>
                     </div>
                 </div>

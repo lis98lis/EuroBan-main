@@ -2,13 +2,6 @@
 /* Шрифты  */
 @import url(https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Raleway:regular,700&display=swap);
-@font-face {
-  font-family: "Formular";
-  font-display: swap;
-  src: local("Formular Regular"), local("Formular-Regular"), url("../fonts/Formular.woff2") format("woff2"), url("../fonts/Formular.woff") format("woff"), url("../fonts/Formular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
 /* Обнуление */
 * {
   padding: 0;
@@ -108,7 +101,7 @@ body {
 }
 
 .wrapper {
-  overflow-y: auto;
+  overflow-y: unset;
   overflow-x: hidden;
   height: 100%;
 }
@@ -231,14 +224,29 @@ main {
   display: none;
 }
 
+.header__navigation {
+  width: 100%;
+  max-width: 848px;
+  margin: 0 10px;
+}
+
 .menu-burger__list {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 40px;
 }
-
-.menu-burger__link {
+.menu-burger__list > div {
+  width: 100%;
+}
+.menu-burger__list .menu {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.menu-burger__list li {
+  margin: 0 15px;
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -246,10 +254,12 @@ main {
   line-height: 157.143%;
   transition: color 0.3s ease 0s;
 }
+.menu-burger__list li:hover {
+  color: #0e67c0;
+}
 
 .menu-burger__link:hover {
   /* gap: 10px; */
-  color: #0e67c0;
 }
 
 .menu-burger__link-services > img {
@@ -292,6 +302,20 @@ main {
 }
 
 ._active-lang {
+  color: #0e67c0;
+}
+
+.header__lang {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #bcbccc;
+  font-size: 14px;
+  line-height: 157.143%;
+}
+.header__lang .lang-item::marker {
+  display: none;
+}
+.header__lang .current-lang {
   color: #0e67c0;
 }
 
@@ -3045,6 +3069,7 @@ main {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */
