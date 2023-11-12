@@ -13,13 +13,30 @@ if (pll_current_language() == 'ru') {
 ?>">
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Описание" />
-    <meta name="keywords" content="Ключевики" />
-    <meta name="author" content="Автор" />
-    <title>ЄвроБан</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title><?php the_field('meta_tags'); ?></title>
+    <meta name="description" content="<?php the_field('description'); ?>"/>
+    <meta name="keywords" content="<?php the_field('keywords'); ?>"/>
+    <meta name="author" content="<?php the_field('author'); ?>"/>
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="<?php the_field('ogurl'); ?>"/>
+    <meta property="og:type" content="<?php the_field('ogtype'); ?>"/>
+    <meta property="og:title" content="<?php the_field('ogtitle'); ?>"/>
+    <meta property="og:description" content="<?php the_field('ogdescription'); ?>"/>
+    <meta property="og:image" content="<?php the_field('ogimage'); ?>"/>
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="<?php the_field('wittercard'); ?>"/>
+    <meta property="twitter:domain" content="<?php the_field('twitterdomain'); ?>"/>
+    <meta property="twitter:url" content="<?php the_field('twitterurl'); ?>"/>
+    <meta name="twitter:title" content="<?php the_field('twittertitle'); ?>"/>
+    <meta name="twitter:description" content="<?php the_field('twitterdescription'); ?>"/>
+    <meta name="twitter:image" content="<?php the_field('twitterimage'); ?>"/>
+    <meta property="og:image:width" content="<?php the_field('ogimagewidth'); ?>"/>
+    <meta property="og:image:height" content="<?php the_field('ogimageheight'); ?>"/>
 
     <?php wp_head(); ?>
+    <?php rel_canonical(); ?>
 
 </head>
 <body>
@@ -54,20 +71,24 @@ if (pll_current_language() == 'ru') {
                                         <div class="phone-header__spoller">
                                             <img src="<?php bloginfo('template_url');?>/assets/img/icons/phone.svg" alt="phone icon" height="20" width="20" />
                                             <div class="phone-header__phone">
-                                                <a href="tel:0445365051">(044) 536 50 60</a>
+                                                <a href="tel:<?php the_field('number_contacts_main-num-link', $front_id); ?>">
+                                                    <?php the_field('number_contacts_main-num', $front_id); ?>
+                                                </a>
                                             </div>
                                         </div>
                                         <ul class="phone-header__l">
-                                            <li>
-                                                <div class="phone-header__phone">
-                                                    <a href="tel:0445365051">+38 (063) 536 50 61</a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="phone-header__phone">
-                                                    <a href="tel:0445365051">+38 (063) 536 50 62</a>
-                                                </div>
-                                            </li>
+                                            <?php
+                                            if (have_rows('Creating numbers_contacts', $front_id)):
+                                                while (have_rows('Creating numbers_contacts', $front_id)) : the_row(); ?>
+                                                    <li>
+                                                        <div class="phone-header__phone">
+                                                            <a href="tel:<?php the_sub_field ('Phone_contact_number_link-tel', $front_id);?>"><?php the_sub_field ('Phone_contact_number_link', $front_id);?></a>
+                                                        </div>
+                                                    </li>
+                                                <?php endwhile;
+                                            else :
+                                            endif;
+                                            ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -76,9 +97,6 @@ if (pll_current_language() == 'ru') {
                     </nav>
                 </div>
             </div>
-            <ul class="header__lang" data-da=".menu-burger__actions,768,first">
-                <?php pll_the_languages(array('show_flags' => 0, 'display_names_as' => 0,'dropdown' => 0, 'post_id' => 2)); ?>
-            </ul>
             <div class="header__actions">
                 <div class="header__actions-social" data-da=".menu-burger__actions,900">
                     <?php
@@ -99,7 +117,9 @@ if (pll_current_language() == 'ru') {
                             <div class="phone-header__spoller">
                                 <img src="<?php the_field ('number_contacts_image', $front_id);?>" alt="phone icon" height="20" width="20" />
                                 <div class="phone-header__phone">
-                                    <a href="tel:<?php the_field('number_contacts_main-num-link', $front_id); ?>"><?php the_field('number_contacts_main-num', $front_id); ?></a>
+                                    <a href="tel:<?php the_field('number_contacts_main-num-link', $front_id); ?>">
+                                        <?php the_field('number_contacts_main-num', $front_id); ?>
+                                    </a>
                                 </div>
                                 <button type="button" class="phone-header__arrow">
                                     <img src="<?php bloginfo('template_url');?>/assets/img/icons/drop.svg" alt="expand more" height="15" width="15"
@@ -108,8 +128,8 @@ if (pll_current_language() == 'ru') {
                             </div>
                             <ul class="phone-header__list spoiler-body-lang">
                                 <?php
-                                if (have_rows('Creating numbers_contacts')):
-                                    while (have_rows('Creating numbers_contacts')) : the_row(); ?>
+                                if (have_rows('Creating numbers_contacts', $front_id)):
+                                    while (have_rows('Creating numbers_contacts', $front_id)) : the_row(); ?>
                                         <li>
                                             <div class="phone-header__phone">
                                                 <a href="tel:<?php the_sub_field ('Phone_contact_number_link-tel', $front_id);?>"><?php the_sub_field ('Phone_contact_number_link', $front_id);?></a>
@@ -130,6 +150,9 @@ if (pll_current_language() == 'ru') {
                     <span></span>
                 </button>
             </div>
+            <ul class="header__lang" data-da=".menu-burger__actions,768,first">
+                <?php pll_the_languages(array('show_flags' => 0, 'display_names_as' => 0,'dropdown' => 0, 'post_id' => 2)); ?>
+            </ul>
         </div>
     </header>
 

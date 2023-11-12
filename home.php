@@ -12,8 +12,8 @@ Template Name: home
             <video class="intro__video" src="<?php the_field('main_block-video');?>" muted autoplay loop playsinline></video>
             <div class="intro__container">
                 <div class="intro__left-block">
-                    <h1 class="intro__title"><?php the_field ('title_main_block_video');?>
-                    </h1>
+                    <p class="intro__title"><?php the_field ('title_main_block_video');?>
+                    </p>
                     <p class="intro__subtitle"><?php the_field('Text_after_title_main'); ?></p>
                     <div class="intro__row">
                         <a href="<?php the_field('Link_button_left'); ?>" class="intro__btn primary-btn"><?php the_field('Text_button_order_services'); ?></a>
@@ -49,7 +49,7 @@ Template Name: home
         <!-- Services -->
         <section class="services">
             <div class="services__container">
-                <h2 class="services__title"><?php the_field ('title_block_services');?></h2>
+                <p class="services__title"><?php the_field ('title_block_services');?></p>
                 <div class="services__items">
 
                     <?php
@@ -92,7 +92,7 @@ Template Name: home
             </div>
             <div class="rent__container">
                 <div class="rent__box">
-                    <h3 class="rent__title"><?php the_field ('Lease_Title');?></h3>
+                    <p class="rent__title"><?php the_field ('Lease_Title');?></p>
                     <p class="rent__text">
                         <?php the_field ('Rental_equipment_text');?>
                     </p>
@@ -147,7 +147,7 @@ Template Name: home
             <div class="steps__container">
                 <!-- Swiper -->
                 <div class="steps__swiper steps-swiper swiper">
-                    <h4 class="steps-swiper__title title"><?php the_field ('Title_how_work');?></h4>
+                    <p class="steps-swiper__title title"><?php the_field ('Title_how_work');?></p>
                     <div class="swiper-wrapper">
 
                         <?php
@@ -202,7 +202,7 @@ Template Name: home
                     <img class="info__bg" src="<?php the_field ('Background_image_company');?>" alt="bg" />
 
                     <div class="info-top__left">
-                        <h4 class="info-top__title"><?php the_field ('Company_title_numbers');?></h4>
+                        <p class="info-top__title"><?php the_field ('Company_title_numbers');?></p>
                         <p class="info-top__subtitle">
                             <?php the_field ('Company_subtitle_numbers');?>
                         </p>
@@ -299,7 +299,7 @@ Template Name: home
         <!-- advantages -->
         <section class="advantages">
             <div class="advantages__container">
-                <h4 class="advantages__title"><?php the_field ('title_other_companies');?></h4>
+                <p class="advantages__title"><?php the_field ('title_other_companies');?></p>
                 <div class="advantages__items">
 
                     <?php
@@ -321,7 +321,7 @@ Template Name: home
                                         <!-- Первая картинка для больших экранов -->
                                         <source srcset="<?php the_sub_field ('Benefits_img');?>" media="(min-width: 550px)" />
                                         <!-- Вторая картинка для мобильных устройств -->
-                                        <img src="<?php bloginfo('template_url');?>/assets/img/advantages/1-mob.png" alt="item-image" />
+                                        <img src="<?php the_sub_field ('Benefits_img');?>" alt="item-image" />
                                     </picture>
                                 </div>
                                 <p class="advantages__item-text">
@@ -344,30 +344,23 @@ Template Name: home
         <!-- clients -->
         <section class="clients">
             <div class="client__container">
-                <h4 class="clients__title"><?php the_field ('Clients_title');?></h4>
+                <p class="clients__title"><?php the_field ('Clients_title');?></p>
             </div>
             <!-- Slider main container -->
             <div class="clients__slider swiper">
                 <!-- Additional required wrapper -->
                 <div class="clients__items swiper-wrapper">
-
                     <?php
 
-                    // проверяем есть ли в повторителе данные
                     if (have_rows('Clients_logo_creation')):
-
-                        // перебираем данные
                         while (have_rows('Clients_logo_creation')) : the_row(); ?>
 
                             <div class="clients__item swiper-slide">
                                 <img class="clients__item-img" src="<?php the_sub_field ('img_logo_creation');?>" alt="partner-icon" />
                             </div>
                         <?php endwhile;
-
                     else :
-
                     endif;
-
                     ?>
                 </div>
             </div>
@@ -382,17 +375,11 @@ Template Name: home
                     <div class="swiper-wrapper">
 
                         <?php
-
-                        // проверяем есть ли в повторителе данные
                         if (have_rows('creating_large_slider')):
-
-                            // перебираем данные
                             while (have_rows('creating_large_slider')) : the_row(); ?>
-
                                 <div class="swiper-slide">
                                     <picture>
-                                        <!-- <source srcset="<?php bloginfo('template_url');?>/assets/img/order/img1-mobile.jpg" media="max-width:768px"> -->
-                                        <img src="<?php the_sub_field ('creating_large_slider_image');?>" alt="Slide 1">
+                                        <img src="<?php the_sub_field ('creating_large_slider_image');?>" alt="Slide 1" media="max-width:768px">
                                     </picture>
                                     <div class="order-swipers__about about-repair">
                                         <p class="about-repair__title"><?php the_sub_field ('Slider_title_repair');?></p>
@@ -402,36 +389,24 @@ Template Name: home
                                             </p>
                                         </div>
                                         <div class="about-repair__info">
-
                                             <?php
-
-                                            // проверяем есть ли в повторителе данные
                                             if (have_rows('Creating_little_information_slider')):
-
-                                                // перебираем данные
                                                 while (have_rows('Creating_little_information_slider')) : the_row(); ?>
-
                                                     <div class="about-repair__info-item">
                                                         <span class="about-repair__info-area"><?php the_sub_field ('Small_information_header_slider');?></span>
                                                         <span><?php the_sub_field ('Small_information_text_slider');?></span>
                                                     </div>
                                                 <?php endwhile;
-
                                             else :
-
                                             endif;
-
                                             ?>
                                         </div>
                                         <a href=" <?php the_sub_field ('Slider_button_link');?>" class="about-repair__btn"> <?php the_sub_field ('Slider_button_text');?></a>
                                     </div>
                                 </div>
                             <?php endwhile;
-
                         else :
-
                         endif;
-
                         ?>
                     </div>
                     <div class="main-swiper__button-prev">
@@ -482,9 +457,9 @@ Template Name: home
                         <p><?php the_field ('Heading_Overhaul_subtitle');?></p>
                     </div>
 
-                    <form class="order-form__contacts form-contacts" name="order-form" id="orderForm">
-                   <?php echo do_shortcode('[contact-form-7 id="1534157" title="Контактная форма 1"]')?>
-                    </form>
+                    <div class="order-form__contacts form-contacts" name="order-form" id="orderForm">
+                   <?php echo do_shortcode('[contact-form-7 id="f3a4a5f" title="Контактная форма 1"]')?>
+                    </div>
                 </div>
             </div>
         </section>
@@ -502,7 +477,7 @@ Template Name: home
                         </div>
                     </a>
                     <div class="blog__company">
-                        <h4 class="blog__company-title"><?php the_field ('Company_Blog_Header');?></h4>
+                        <p class="blog__company-title"><?php the_field ('Company_Blog_Header');?></p>
                         <div class="blog__company-content">
 
                             <?php
@@ -535,32 +510,27 @@ Template Name: home
         <!-- seo -->
         <section class="seo">
             <div class="seo__container">
-                <h4 class="seo__title"><?php the_field ('title_СЕО');?></h4>
+                <p class="seo__title"><?php the_field ('title_СЕО');?></p>
                 <div class="seo__content">
-                    <div class="seo__text-container">
+                    <div class="seo__text-container expanded">
                         <?php
-
-                        // проверяем есть ли в повторителе данные
                         if (have_rows('Creating_text_blocks')):
-
-                            // перебираем данные
                             while (have_rows('Creating_text_blocks')) : the_row(); ?>
-
                                 <p class="seo__text">
                                     <?php the_sub_field ('CEO_block_text');?>
                                 </p>
                             <?php endwhile;
-
                         else :
-
                         endif;
-
                         ?>
                     </div>
                     <button class="seo__show-more">Показать все</button>
                 </div>
+
             </div>
+
         </section>
+
         <!-- /seo -->
     </main>
 <?php get_footer(); ?>
