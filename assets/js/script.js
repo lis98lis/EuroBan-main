@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //swiper Steps
 document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth <= 768) {
-        const swiperSteps = new Swiper('.swiper', {
+        const swiperSteps = new Swiper('.swiper-steps', {
             speed: 400,
             navigation: {
                 nextEl: '.steps-swiper__next',
@@ -331,6 +331,10 @@ document.addEventListener('DOMContentLoaded', function () {
         pagination: {
             el: '.swiper-pagination',
             type: 'bullets',
+        },
+        navigation: {
+            nextEl: '.steps-swiper__next',
+            prevEl: '.steps-swiper__prev',
         },
         breakpoints: {
             1280: {

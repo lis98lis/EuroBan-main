@@ -15,28 +15,8 @@ if (pll_current_language() == 'ru') {
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title><?php the_field('meta_tags'); ?></title>
-    <meta name="description" content="<?php the_field('description'); ?>"/>
-    <meta name="keywords" content="<?php the_field('keywords'); ?>"/>
-    <meta name="author" content="<?php the_field('author'); ?>"/>
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="<?php the_field('ogurl'); ?>"/>
-    <meta property="og:type" content="<?php the_field('ogtype'); ?>"/>
-    <meta property="og:title" content="<?php the_field('ogtitle'); ?>"/>
-    <meta property="og:description" content="<?php the_field('ogdescription'); ?>"/>
-    <meta property="og:image" content="<?php the_field('ogimage'); ?>"/>
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="<?php the_field('wittercard'); ?>"/>
-    <meta property="twitter:domain" content="<?php the_field('twitterdomain'); ?>"/>
-    <meta property="twitter:url" content="<?php the_field('twitterurl'); ?>"/>
-    <meta name="twitter:title" content="<?php the_field('twittertitle'); ?>"/>
-    <meta name="twitter:description" content="<?php the_field('twitterdescription'); ?>"/>
-    <meta name="twitter:image" content="<?php the_field('twitterimage'); ?>"/>
-    <meta property="og:image:width" content="<?php the_field('ogimagewidth'); ?>"/>
-    <meta property="og:image:height" content="<?php the_field('ogimageheight'); ?>"/>
-
+    <title>404 Not Found</title>
     <?php wp_head(); ?>
-    <?php rel_canonical(); ?>
 
 </head>
 <body>
@@ -70,7 +50,7 @@ if (pll_current_language() == 'ru') {
                                     <div class="phone-header__item">
                                         <div class="phone-header__spoller">
                                             <img src="<?php bloginfo('template_url');?>/assets/img/icons/phone.svg" alt="phone icon" height="20" width="20" />
-                                            <div class="phone-header__phone phone-header__phone_menu">
+                                            <div class="phone-header__phone">
                                                 <a href="tel:<?php the_field('number_contacts_main-num-link', $front_id); ?>">
                                                     <?php the_field('number_contacts_main-num', $front_id); ?>
                                                 </a>
@@ -81,7 +61,7 @@ if (pll_current_language() == 'ru') {
                                             if (have_rows('Creating numbers_contacts', $front_id)):
                                                 while (have_rows('Creating numbers_contacts', $front_id)) : the_row(); ?>
                                                     <li>
-                                                        <div class="phone-header__phone phone-header__phone_menu">
+                                                        <div class="phone-header__phone">
                                                             <a href="tel:<?php the_sub_field ('Phone_contact_number_link-tel', $front_id);?>"><?php the_sub_field ('Phone_contact_number_link', $front_id);?></a>
                                                         </div>
                                                     </li>

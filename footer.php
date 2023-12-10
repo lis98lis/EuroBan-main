@@ -3,6 +3,7 @@
 <footer class="footer">
     <div class="footer__container">
         <div class="footer__inner">
+
             <div class="footer__logo-box">
                 <a class="footer__logo" href="#">
                     <img src="<?php the_field('Basement_logo', $front_id); ?>" alt="logo-icon"/>
@@ -30,7 +31,9 @@
                             while (have_rows('Creating_Footer_Services_one', $front_id)) : the_row(); ?>
 
                                 <a class="footer__link"
-                                   href="<?php the_sub_field('link_basement_service_one', $front_id); ?>"><?php the_sub_field('Text_basement_service_one', $front_id); ?></a>
+                                   href="<?php the_sub_field('link_basement_service_one', $front_id); ?>">
+                                    <?php the_sub_field('Text_basement_service_one', $front_id); ?>
+                                </a>
                             <?php endwhile;
                         else :
                         endif;
@@ -43,13 +46,12 @@
                             // перебираем данные
                             while (have_rows('Creating_Footer_Services_two', $front_id)) : the_row(); ?>
                                 <a class="footer__link"
-                                   href="<?php the_sub_field('link_basement_service_two', $front_id); ?>"><?php the_sub_field('Text_basement_service_two', $front_id); ?></a>
+                                   href="<?php the_sub_field('link_basement_service_two', $front_id); ?>">
+                                    <?php the_sub_field('Text_basement_service_two', $front_id); ?>
+                                </a>
                             <?php endwhile;
-
                         else :
-
                         endif;
-
                         ?>
                     </div>
                 </div>
@@ -119,19 +121,20 @@
                     </a>
                 </div>
             </div>
+
+            <div class="footer__content"></div>
         </div>
 
-        <div class="footer__content"></div>
     </div>
-    </div>
+
 </footer>
-<!-- /Footer -->
 </div>
+<!-- /Footer -->
 
 
 <?php wp_footer(); ?>
 <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/script.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/swiper.js"></script>
+
 </body>
 </html>

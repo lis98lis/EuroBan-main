@@ -541,15 +541,15 @@ Template Name: template
                 elseif (get_row_layout() == 'flex-seo'):?>
                     <div class="seo">
                         <div class="seo__container">
-                            <h4 class="seo__title"><?php the_sub_field('title_seo-template'); ?></h4>
+                            <div class="seo__title"><?php the_sub_field('title_seo-template'); ?></div>
                             <div class="seo__content">
                                 <div class="seo__text-container expanded">
                                     <?php
                                     if (have_rows('Creating_text_blocks-template')):
                                         while (have_rows('Creating_text_blocks-template')) : the_row(); ?>
-                                            <p class="seo__text">
+                                            <div class="seo__text">
                                                 <?php the_sub_field('CEO_block_text-template'); ?>
-                                            </p>
+                                            </div>
                                         <?php endwhile;
                                     else :
                                     endif;

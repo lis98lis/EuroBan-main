@@ -3,7 +3,7 @@
 Template Name:404-not-found
 */
 ?>
-<?php get_header(); ?>
+<?php get_header('404'); ?>
     <main class="main__not-found">
         <section class="not-found">
             <a href="<?php the_permalink(2); ?>" class="not-found__container">
